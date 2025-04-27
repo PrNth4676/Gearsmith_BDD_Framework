@@ -16,7 +16,7 @@ public class HomePageTest extends BaseClass {
 		String actualTitle = getTitleOfPage();
 		String[] titleParts = actualTitle.split(" | ");
 		try {
-			Assert.assertEquals("Gearsmithyyy", titleParts[0]);
+			Assert.assertEquals("Gearsmith", titleParts[0]);
 			logger.info("Title matches as expected");
 		} catch (AssertionError e) {
 			logger.error("Title Mismatch" + e.getMessage());
