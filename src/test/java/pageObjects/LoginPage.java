@@ -10,6 +10,6 @@ public class LoginPage extends BasePage {
 		super(driver);
 	}
 
-	static @FindBy(xpath = "(//button[normalize-space()='Log In'])[2]") WebElement LINK_logIn_XPATH;
+	public @FindBy(xpath = "(//button[normalize-space()='Log In'])[2]") WebElement LINK_logIn_XPATH;
 
 }

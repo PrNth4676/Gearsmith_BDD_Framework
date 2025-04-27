@@ -10,6 +10,6 @@ public class HomePage extends BasePage {
 		super(driver);
 	}
 
-	static @FindBy(xpath = "//span[normalize-space()='Log In']") WebElement LINK_logIn_XPATH;
+	public @FindBy(xpath = "//span[normalize-space()='Log In']") WebElement LINK_logIn;
 
 }
