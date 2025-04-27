@@ -1,38 +1,44 @@
 package testBase;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 public class BaseClass {
 
 	public static WebDriver driver;
-	static Properties config;
+	public static Properties config;
 	static FileInputStream inputStream;
 	static String browser;
 	public static Logger logger;
 
 	// BROWSER MANAGEMENT //
-	@BeforeClass
-	public void setUp() {
+	@BeforeClass(groups = { "Sanity", "Regression" })
+	@Parameters({ "OS", "Browser" })
+	public void setUp(String OS, String Browser) {
 		logger = LogManager.getLogger(this.getClass()); // Initialized the Logger
 		if (driver == null) {
 			try {
-				String configFilePath = "\\src\\test\\resources\\properties\\Config.properties";
+				String configFilePath = "\\src\\test\\resources\\properties\\config.properties";
 				inputStream = new FileInputStream(System.getProperty("user.dir") + configFilePath);
 			} catch (FileNotFoundException e) {
 				logger.error("Failed to open Config file" + e.getMessage());
@@ -45,30 +51,31 @@ public class BaseClass {
 			}
 		}
 
-		if (System.getenv("browser") != null && (!System.getenv("browser").isEmpty())) {
-			browser = System.getenv("browser");
-		} else {
-			browser = config.getProperty("browser");
-		}
-
-		config.setProperty("browser", browser);
-
-		if (config.getProperty("browser").equals("firefox")) {
-			driver = new FirefoxDriver();
-		} else if (config.getProperty("browser").equals("chrome")) {
+		switch (Browser.toLowerCase()) {
+		case "chrome":
 			driver = new ChromeDriver();
-		} else if (config.getProperty("browser").equals("ie")) {
-			driver = new InternetExplorerDriver();
+			logger.info("Opened Chrome Browser");
+			break;
+		case "edge":
+			driver = new EdgeDriver();
+			logger.info("Opened Edge Browser");
+			break;
+		case "firefox":
+			driver = new FirefoxDriver();
+			logger.info("Opened Firefox Browser");
+			break;
+		default:
+			logger.fatal("Invalid Browser!");
+			return; // This will cause the execution to break.
 		}
 
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(config.getProperty("testURL"));
 		driver.manage().window().maximize();
-
 	}
 
-	@AfterClass
+	@AfterClass(groups = { "Sanity", "Regression" })
 	public static void tearDown() {
 		if (driver != null) {
 			driver.quit();
@@ -83,6 +90,7 @@ public class BaseClass {
 	public static void clickElement(WebElement locator) {
 		try {
 			locator.click();
+			logger.info("Clicked on the Element : " + locator.getText());
 		} catch (NoSuchElementException e) {
 			logger.error("Failed to click on the Element" + e.getMessage());
 		}
@@ -92,17 +100,12 @@ public class BaseClass {
 	 * @author Pratik Nath
 	 * @METHOD : Enter values to Element using Locator
 	 **/
-	public static void typeValues(String locator, String valueToEnter) {
+	public static void typeValues(WebElement locator, String valueToEnter) {
 		try {
-			if (locator.endsWith("_CSS")) {
-				driver.findElement(By.cssSelector(locator)).sendKeys(valueToEnter);
-			} else if (locator.endsWith("_XPATH")) {
-				driver.findElement(By.xpath(locator)).sendKeys(valueToEnter);
-			} else if (locator.endsWith("_ID")) {
-				driver.findElement(By.id(locator)).sendKeys(valueToEnter);
-			}
+			locator.sendKeys(valueToEnter);
+			logger.info("Entered value : " + valueToEnter + " on the field :" + locator.getText());
 		} catch (NoSuchElementException e) {
-			System.out.println(e.getMessage());
+			logger.error("Failed to enter values on the Element" + e.getMessage());
 		}
 	}
 
@@ -112,6 +115,26 @@ public class BaseClass {
 	 **/
 	public static String getTitleOfPage() {
 		return driver.getTitle();
+	}
+
+	
+	/**
+	 * @author Pratik Nath
+	 * @METHOD : Captures Screenshot
+	 **/
+	public String captureScreen(String tname) throws IOException {
+
+		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+
+		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+
+		String targetFilePath = System.getProperty("user.dir") + "\\screenshots\\" + tname + "_" + timeStamp + ".png";
+		File targetFile = new File(targetFilePath);
+
+		sourceFile.renameTo(targetFile);
+
+		return targetFilePath;
 	}
 
 }
