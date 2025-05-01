@@ -1,6 +1,6 @@
 ### Folders ###
 /target/
-# /logs/
+/logs/
 /reports/
 /screenshots/
 /testData/

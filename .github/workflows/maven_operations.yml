@@ -37,5 +37,5 @@ jobs:
           distribution: 'temurin'
           # cache: Maven
       - name: Install with Maven
-        run: mvn test
+        run: mvn test -Ppom.xml
        
