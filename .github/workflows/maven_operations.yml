@@ -15,10 +15,10 @@ jobs:
       - name: Output event data
         run: echo "${{ toJSON(github.event) }}"
       - uses: actions/checkout@v4
-      - name: Set Up JDK 21
+      - name: Set Up JDK 11
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
+          java-version: '11'
           distribution: 'temurin'
           cache: Maven
       - name: Build with Maven
