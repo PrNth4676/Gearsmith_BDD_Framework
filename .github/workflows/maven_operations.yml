@@ -15,10 +15,10 @@ jobs:
       - name: Output event data
         run: echo "Starting Maven Clean"
       - uses: actions/checkout@v4
-      - name: Set Up JDK 17
+      - name: Set Up JDK 18
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '18'
           distribution: 'temurin'
           # cache: Maven
       - name: Clean with Maven
@@ -30,10 +30,10 @@ jobs:
       - name: Output event data
         run: echo "Starting Maven Test"
       - uses: actions/checkout@v4
-      - name: Set Up JDK 17
+      - name: Set Up JDK 18
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '18'
           distribution: 'temurin'
             # cache: Maven
       - name: Install with Maven
