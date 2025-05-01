@@ -35,7 +35,7 @@ jobs:
         with:
           java-version: '18'
           distribution: 'temurin'
-          cache: Maven
+          # cache: Maven
       - name: Install with Maven
-        run: mvn clean install
+        run: mvn install
        
