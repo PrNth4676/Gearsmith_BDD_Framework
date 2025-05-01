@@ -61,6 +61,7 @@ public class BaseClass {
 		case "chrome":
 			chromeOptions = getChromeOptions(capabilities);
 			driver = new ChromeDriver(chromeOptions);
+//			driver = new ChromeDriver();
 			logger.info("Opened Chrome Browser");
 			break;
 		case "edge":
