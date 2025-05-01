@@ -9,7 +9,7 @@ on:
     branches:
       - master
 jobs:
-  build:
+  clean:
     runs-on: ubuntu-latest
     steps:
       - name: Output event data
