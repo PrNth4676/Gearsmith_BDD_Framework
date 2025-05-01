@@ -17,8 +17,10 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -30,11 +32,15 @@ public class BaseClass {
 	static FileInputStream inputStream;
 	static String browser;
 	public static Logger logger;
+	public static DesiredCapabilities capabilities;
+	public static ChromeOptions chromeOptions;
 
 	// BROWSER MANAGEMENT //
 	@BeforeClass(groups = { "Sanity", "Regression" })
 	@Parameters({ "OS", "Browser" })
 	public void setUp(String OS, String Browser) {
+		chromeOptions = new ChromeOptions();
+		capabilities = new DesiredCapabilities();
 		logger = LogManager.getLogger(this.getClass()); // Initialized the Logger
 		if (driver == null) {
 			try {
@@ -53,7 +59,8 @@ public class BaseClass {
 
 		switch (Browser.toLowerCase()) {
 		case "chrome":
-			driver = new ChromeDriver();
+			chromeOptions = getChromeOptions(capabilities);
+			driver = new ChromeDriver(chromeOptions);
 			logger.info("Opened Chrome Browser");
 			break;
 		case "edge":
@@ -73,6 +80,15 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(config.getProperty("testURL"));
 		driver.manage().window().maximize();
+	}
+
+	public static ChromeOptions getChromeOptions(DesiredCapabilities capabilities) {
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless"); // Run when on GitHub Actions
+		options.addArguments("--disable-gpu");
+		options.addArguments("--no-sandbox");
+		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+		return options.merge(capabilities);
 	}
 
 	@AfterClass(groups = { "Sanity", "Regression" })
@@ -117,7 +133,6 @@ public class BaseClass {
 		return driver.getTitle();
 	}
 
-	
 	/**
 	 * @author Pratik Nath
 	 * @METHOD : Captures Screenshot
