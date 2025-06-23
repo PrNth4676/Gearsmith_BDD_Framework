@@ -1,184 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="0" failed="0" skipped="3">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-27T22:25:43 IST" name="Failed suite [Default suite]" finished-at="2025-04-27T22:25:43 IST" duration-ms="138">
+  <suite started-at="2025-05-02T00:41:15 IST" name="Master Suite" finished-at="2025-05-02T00:42:20 IST" duration-ms="64962">
     <groups>
       <group name="Sanity">
-        <method signature="HomePageTest.verifyHomePage()[pri:0, instance:testCases.HomePageTest@5d018107]" name="verifyHomePage" class="testCases.HomePageTest"/>
+        <method signature="HomePageTest.verifyHomePage()[pri:0, instance:testCases.HomePageTest@78fb9a67]" name="verifyHomePage" class="testCases.HomePageTest"/>
       </group> <!-- Sanity -->
       <group name="Regression">
-        <method signature="HomePageTest.verifyHomePage()[pri:0, instance:testCases.HomePageTest@5d018107]" name="verifyHomePage" class="testCases.HomePageTest"/>
-        <method signature="HomePageTest.verifyLogInLink()[pri:0, instance:testCases.HomePageTest@5d018107]" name="verifyLogInLink" class="testCases.HomePageTest"/>
+        <method signature="HomePageTest.verifyHomePage()[pri:0, instance:testCases.HomePageTest@78fb9a67]" name="verifyHomePage" class="testCases.HomePageTest"/>
+        <method signature="HomePageTest.verifyLogInLink()[pri:0, instance:testCases.HomePageTest@78fb9a67]" name="verifyLogInLink" class="testCases.HomePageTest"/>
       </group> <!-- Regression -->
     </groups>
-    <test started-at="2025-04-27T22:25:43 IST" name="Default test(failed)" finished-at="2025-04-27T22:25:43 IST" duration-ms="138">
+    <test started-at="2025-05-02T00:41:15 IST" name="Test" finished-at="2025-05-02T00:42:20 IST" duration-ms="64962">
       <class name="testCases.HomePageTest">
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:testCases.HomePageTest@5d018107]" started-at="2025-04-27T22:25:43 IST" name="setUp" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1745772943107" status="FAIL">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Parameter 'OS' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-in D:\LEARNING\AUTO_TEST_GEARSMITH\test-output\testng-failed.xml]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Parameter 'OS' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-in D:\LEARNING\AUTO_TEST_GEARSMITH\test-output\testng-failed.xml
-at org.testng.internal.Parameters.createParams(Parameters.java:264)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:352)
-at org.testng.internal.Parameters.createParameters(Parameters.java:690)
-at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:163)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:313)
-at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:testCases.HomePageTest@78fb9a67]" started-at="2025-05-02T00:41:15 IST" name="setUp" finished-at="2025-05-02T00:41:19 IST" duration-ms="3766" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Windows]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyHomePage()[pri:0, instance:testCases.HomePageTest@5d018107]" started-at="2025-04-27T22:25:43 IST" name="verifyHomePage" finished-at="2025-04-27T22:25:43 IST" duration-ms="1" status="SKIP">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Parameter 'OS' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-in D:\LEARNING\AUTO_TEST_GEARSMITH\test-output\testng-failed.xml]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Parameter 'OS' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-in D:\LEARNING\AUTO_TEST_GEARSMITH\test-output\testng-failed.xml
-at org.testng.internal.Parameters.createParams(Parameters.java:264)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:352)
-at org.testng.internal.Parameters.createParameters(Parameters.java:690)
-at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:163)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:313)
-at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyHomePage -->
-        <test-method signature="verifyAccountPage()[pri:0, instance:testCases.HomePageTest@5d018107]" started-at="2025-04-27T22:25:43 IST" name="verifyAccountPage" finished-at="2025-04-27T22:25:43 IST" duration-ms="0" status="SKIP">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Parameter 'OS' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-in D:\LEARNING\AUTO_TEST_GEARSMITH\test-output\testng-failed.xml]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Parameter 'OS' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-in D:\LEARNING\AUTO_TEST_GEARSMITH\test-output\testng-failed.xml
-at org.testng.internal.Parameters.createParams(Parameters.java:264)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:352)
-at org.testng.internal.Parameters.createParameters(Parameters.java:690)
-at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:163)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:313)
-at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+        <test-method signature="verifyAccountPage()[pri:0, instance:testCases.HomePageTest@78fb9a67]" started-at="2025-05-02T00:41:19 IST" name="verifyAccountPage" finished-at="2025-05-02T00:42:04 IST" duration-ms="45347" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAccountPage -->
-        <test-method signature="verifyLogInLink()[pri:0, instance:testCases.HomePageTest@5d018107]" started-at="2025-04-27T22:25:43 IST" name="verifyLogInLink" finished-at="2025-04-27T22:25:43 IST" duration-ms="0" status="SKIP">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Parameter 'OS' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-in D:\LEARNING\AUTO_TEST_GEARSMITH\test-output\testng-failed.xml]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Parameter 'OS' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-in D:\LEARNING\AUTO_TEST_GEARSMITH\test-output\testng-failed.xml
-at org.testng.internal.Parameters.createParams(Parameters.java:264)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:352)
-at org.testng.internal.Parameters.createParameters(Parameters.java:690)
-at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:163)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:313)
-at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+        <test-method signature="verifyHomePage()[pri:0, instance:testCases.HomePageTest@78fb9a67]" started-at="2025-05-02T00:42:04 IST" name="verifyHomePage" finished-at="2025-05-02T00:42:04 IST" duration-ms="26" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHomePage -->
+        <test-method signature="verifyLogInLink()[pri:0, instance:testCases.HomePageTest@78fb9a67]" started-at="2025-05-02T00:42:04 IST" name="verifyLogInLink" finished-at="2025-05-02T00:42:19 IST" duration-ms="15047" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogInLink -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.HomePageTest@5d018107]" started-at="2025-04-27T22:25:43 IST" name="tearDown" finished-at="2025-04-27T22:25:43 IST" duration-ms="0" status="SKIP">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.HomePageTest@78fb9a67]" started-at="2025-05-02T00:42:19 IST" name="tearDown" finished-at="2025-05-02T00:42:20 IST" duration-ms="390" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- testCases.HomePageTest -->
-    </test> <!-- Default test(failed) -->
-  </suite> <!-- Failed suite [Default suite] -->
+    </test> <!-- Test -->
+  </suite> <!-- Master Suite -->
 </testng-results>

@@ -21,6 +21,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -34,13 +35,12 @@ public class BaseClass {
 	public static Logger logger;
 	public static DesiredCapabilities capabilities;
 	public static ChromeOptions chromeOptions;
+	public static RemoteWebDriver webDriver;
 
 	// BROWSER MANAGEMENT //
 	@BeforeClass(groups = { "Sanity", "Regression" })
 	@Parameters({ "OS", "Browser" })
-	public void setUp(String OS, String Browser) {
-		chromeOptions = new ChromeOptions();
-		capabilities = new DesiredCapabilities();
+	public void setUp(String OS, String Browser) throws Exception {
 		logger = LogManager.getLogger(this.getClass()); // Initialized the Logger
 		if (driver == null) {
 			try {
@@ -59,9 +59,11 @@ public class BaseClass {
 
 		switch (Browser.toLowerCase()) {
 		case "chrome":
-			chromeOptions = getChromeOptions(capabilities);
-			driver = new ChromeDriver(chromeOptions);
-//			driver = new ChromeDriver();
+//			capabilities.setCapability(ChromeOptions.CAPABILITY, getChromeOptions(capabilities));
+//			URL url = new URI("http://localhost:4444/wd/hub").toURL();
+//			webDriver = new RemoteWebDriver(url, capabilities);
+//			driver = new ChromeDriver(getChromeOptions(capabilities));
+			driver = new ChromeDriver();
 			logger.info("Opened Chrome Browser");
 			break;
 		case "edge":
@@ -85,7 +87,7 @@ public class BaseClass {
 
 	public static ChromeOptions getChromeOptions(DesiredCapabilities capabilities) {
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless"); // Run when on GitHub Actions
+//		options.addArguments("--headless"); // Run when on GitHub Actions
 		options.addArguments("--disable-gpu");
 		options.addArguments("--no-sandbox");
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
